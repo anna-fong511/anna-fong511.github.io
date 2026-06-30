@@ -1,4 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
-gem "webrick", "~> 1.8"
+gem "jekyll"
+gem "jekyll-remote-theme"
+gem "jekyll-seo-tag"
+
+# Optional but recommended for GitHub Pages compatibility
+gem "github-pages", group: :jekyll_plugins

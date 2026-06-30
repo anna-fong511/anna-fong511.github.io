@@ -7,6 +7,10 @@ timezone: Asia/Hong_Kong
 markdown: kramdown
 permalink: pretty
 
+#remote_theme: pages-themes/minimal
+plugins:
+  - jekyll-remote-theme
+
 sass:
   style: compressed
   quiet_deps: true
