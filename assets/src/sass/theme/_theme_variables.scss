@@ -1,0 +1,13 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+
+
+$primary: #1A535C; // Thats a sample how you could change a BootStrap variable.
+$secondary: #4ECDC4;
+$dark: #F7FFF7;
+$white: #fff;
+
+$nav_height: 100px;
+
+$fa-font-path: "../fonts";

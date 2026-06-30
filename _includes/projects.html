@@ -1,0 +1,85 @@
+<div class="section section-project">
+  <a class="anchor" id="project"></a>
+  {% assign ordered_projects = site.projects | sort: 'order' %}
+  <div class="container">
+    {% for project in ordered_projects %}
+      {% unless project.published == false %}
+      <div class="row project">
+        <div class="col-12 col-md-6 p-5 project-image-div fade">
+          <a href="#project-{{ project.slug | default: project.title | slugify }}" class="featherlight-link">
+            <img src="{{ project.feature_image | relative_url }}" class="img-fluid rounded" alt="feature image for {{ project.title }}">
+          </a>
+        </div>
+        <div class="col-12 col-md-6 p-5 project-text-div fade">
+          <h5 class="project-title">{{ project.title }}</h5>
+          <p class="project-text">{{ project.introtext }}</p>
+          <ul class="project-highlight">
+            {% for highlight in project.highlight %}
+              <li>{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+
+  {% for project in ordered_projects %}
+    {% unless project.published == false %}
+    <div id="project-{{ project.slug | default: project.title | slugify }}" class="featherlight-hidden">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-12 project-description">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.content }}</p>
+          </div>
+          {% if project.technology and project.technology.size > 0 %}
+          <div class="col-md-12 project-technology mb-2">
+            <h3>Technology</h3>
+            <div>
+              {% for tech in project.technology %}
+              <span class="badge bg-primary ml-1 p-1">{{ tech }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+          {% if project.technical_skills and project.technical_skills.size > 0 %}
+          <div class="col-md-12 project-technology mb-2">
+            <h3>Technical Skills</h3>
+            <div>
+              {% for skill in project.technical_skills %}
+              <span class="badge bg-primary ml-1 p-1">{{ skill }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="col-md-6">
+          <div class="swiper swiper-container project-image">
+            <div class="swiper-wrapper">
+              {% for image in project.gallery_image %}
+              {% assign mobile_image = image | replace: '.', '-mobile.' %}
+              <div class="swiper-slide image-slide">
+                <div class="col-12 desktop">
+                  <div class="col-12 desktop-toolbar bg-primary">
+                    <span class="bg-danger rounded-circle"></span>
+                    <span class="bg-success rounded-circle"></span>
+                    <span class="bg-warning rounded-circle"></span>
+                  </div>
+                  <img src="{{ image | relative_url }}" class="img-fluid" alt="gallery image for {{ project.title }}">
+                </div>
+                <div class="col-3 mobile">
+                  <div class="col-12 mobile-header"><span class="bg-white rounded"></span></div>
+                  <img src="{{ mobile_image | relative_url }}" class="img-fluid w-100" alt="gallery image for {{ project.title }}" onerror="this.closest('.mobile').style.display='none'">
+                  <div class="col-12 mobile-footer"><span class="bg-white rounded-circle"></span></div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endunless %}
+  {% endfor %}
+</div>

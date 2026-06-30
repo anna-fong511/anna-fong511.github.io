@@ -1,0 +1,261 @@
+ul, ol{
+    list-style: none;
+    padding: 0;
+}
+
+body{
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    h1{
+        font-size: 5rem;
+
+        @include media-breakpoint-down(md) {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+    }
+
+    h2{
+        font-size: 4rem;
+        @include media-breakpoint-down(md) {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+    }
+
+    h3{
+        font-size: 3.5rem;
+        @include media-breakpoint-down(md) {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+    }
+
+    h4{
+        font-size: 3rem;
+        @include media-breakpoint-down(md) {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+
+    h5{
+        font-size: 2.5rem;
+        @include media-breakpoint-down(md) {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+    }
+
+    background-color: #F7FFF7;
+    color: $primary;
+}
+
+.header{
+    height: $nav_height;
+
+    .wrapper-header{
+        height: 100%;
+        .navbar{
+            height: $nav_height;
+            background-color: #b2e9e5  !important;
+    
+            color: $primary;
+            a{
+                color: $primary;
+            }
+    
+            .container{
+                background-color: #b2e9e5  !important;
+            }
+    
+            .navbar-nav{
+                .nav-link{
+                    color: rgba($primary, 0.5);
+                }
+    
+                .active{
+                    color: rgba($primary, 0.9);
+                }
+            }
+            
+            .navbar-brand{
+                font-size: 2rem;
+                font-weight: 600;
+            }
+    
+            .navbar-toggler{
+                color: $primary;
+                border: unset;
+                font-size: 2rem;
+                box-shadow: unset;
+            }
+        }
+    }
+}
+
+.section{
+    min-height: calc(100vh - #{$nav_height});
+    scroll-behavior: smooth;
+    position: relative;
+
+    &:nth-child(even) {
+        background-color: $primary;
+        color: $white;
+    }
+
+    @include media-breakpoint-down(md) {
+        min-height: unset;
+        padding: 2rem 0;
+    }
+}
+
+.anchor {
+    margin-top: -$nav_height;
+    position: absolute;
+    top: 0;
+}
+
+.section-cover{
+    display: flex;
+    align-items: center;
+
+    .cover{
+        text-align: center;
+    }
+}
+
+.section-project{
+    padding: 5rem 0;
+}
+
+.section-about-me{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    h3{
+        font-weight: 600;
+    }
+}
+
+.project{
+    
+}
+
+.project-image-div {
+    display: flex;
+    justify-content: center;
+
+    a{
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-radius: .25rem;
+        background-color: #fff;
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-bottom: 0 !important;
+    }
+}
+
+.project-text-div{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-down(md) {
+        padding-top: 0 !important;
+    }
+}
+
+.project-title{
+    font-weight: 700;
+}
+
+.project-text{
+    font-size: 1.5rem;
+    margin-bottom: .75rem;
+}
+
+.project-highlight{
+    list-style: none; 
+    padding-left: 0px;
+}
+
+.featherlight-content{
+    width: 80vw;
+    height: fit-content;
+    border-radius: .25rem !important;
+}
+
+.featherlight-close-icon{
+    top: 1%;
+    right: 1%;
+}
+
+.featherlight-hidden{
+    display: none;
+}
+
+.footer-skill-exp{
+    .container{
+        padding-top: 1.5rem;
+        border-top: 1px solid $primary;
+    }
+
+    h3{
+        padding-bottom: 2rem;
+    }
+
+    .badge{
+        font-size: 1.5rem;
+    }
+
+    .icons-working-experience{
+        display: flex;
+
+        li{
+            padding-right: .5rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            justify-content: center;
+        }
+    }
+}
+
+/*.featherlight-inner{
+    > .row{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        margin: 0;
+    }
+}*/
+
+.fade{
+    opacity: 0;
+    transform: translateY(45px);
+    transition: transform 0.6s, opacity 0.9s;
+
+    &.faded{
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0s;
+    }
+}

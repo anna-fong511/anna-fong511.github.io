@@ -1,0 +1,39 @@
+{% assign tags = "" | split: "" %}
+{% assign visible_projects = site.projects | where_exp: 'item', 'item.published != false' %}
+{% for project in visible_projects %}
+  {% if project.technology %}
+    {% assign tags = tags | concat: project.technology %}
+  {% endif %}
+  {% if project.technical_skills %}
+    {% assign tags = tags | concat: project.technical_skills %}
+  {% endif %}
+{% endfor %}
+{% assign tags = tags | uniq %}
+
+<div class="footer-skill-exp py-4 fade">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 py-4">
+        <h3>Technical Skills</h3>
+        {% for tag in tags %}
+        <span class="badge ml-1 p-2 text-primary">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <div class="col-md-3 py-4 d-none">
+        <h3>Working Experience</h3>
+        <ul class="icons-working-experience">
+          <li>
+            <a target="_blank" rel="noreferrer" href="https://www.dataplugs.com" title="Dataplugs Limited">
+              Dataplugs
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noreferrer" href="https://www.pacificprime.com/" title="Pacific Prime">
+              Pacific Prime
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

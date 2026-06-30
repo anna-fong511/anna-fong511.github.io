@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+<body id="top">
+  <div class="header">
+    <div class="wrapper-header">
+      {% include header.html %}
+    </div>
+  </div>
+
+  <section id="body">
+    <div class="wrapper-body">
+      {{ content }}
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="wrapper-skill-exp">
+      {% include skills_footer.html %}
+    </div>
+    <div class="wrapper-footer">
+      {% include footer.html %}
+    </div>
+  </div>
+
+  <script src="{{ '/assets/src/js/jquery/jquery.js' | relative_url }}"></script>
+  <script src="{{ '/assets/src/js/popper/popper.js' | relative_url }}"></script>
+  <script src="{{ '/assets/src/js/bootstrap5/bootstrap.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/src/js/featherlight/featherlight.js' | relative_url }}"></script>
+  <script src="{{ '/assets/src/js/swiper/swiper-bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+</body>
+</html>

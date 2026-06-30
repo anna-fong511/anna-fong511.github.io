@@ -1,0 +1,30 @@
+title: "Anna's Website"
+description: "Portfolio site for Anna Fong"
+url: "https://anna-fong511.github.io"
+baseurl: ""
+lang: en
+timezone: Asia/Hong_Kong
+markdown: kramdown
+permalink: pretty
+
+sass:
+  style: compressed
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
+    - slash-div
+    - abs-percent
+    - function-units
+
+collections:
+  projects:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: null
